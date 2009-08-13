@@ -1,0 +1,5 @@
+config/database.yml
+doc/api
+doc/app
+log/*.log
+tmp/**/*
