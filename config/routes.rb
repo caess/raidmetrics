@@ -41,5 +41,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
   
-  map.raids_index 'raids/index', :controller => 'RaidController', :action => 'index'
+  map.raids_index 'raids/index', :controller => 'raids', :action => 'index'
+  
+  map.root :controller => 'raids', :action => 'index'
 end
