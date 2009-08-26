@@ -1,0 +1,9 @@
+<% if @raids.length > 0 then %>
+<ul>
+    <% @raids.each do |raid| %>
+    <li><%=h raid.note %></li>
+    <% end %>
+</ul>
+<% else %>
+<p>There are no raids currently analyzed.</p>
+<% end %>
