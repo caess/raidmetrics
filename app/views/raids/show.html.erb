@@ -1,0 +1,10 @@
+<h3><%=h @raid.note %></h3>
+<% if @raid.encounters.length > 0 then %>
+<ul>
+    <% @raid.encounters.each do |encounter| %>
+    <li><%=h encounter.note %></li>
+    <% end %>
+</ul>
+<% else %>
+<p>This raid has no encounters.</p>
+<% end %>

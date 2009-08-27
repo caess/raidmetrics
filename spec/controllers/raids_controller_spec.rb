@@ -6,3 +6,10 @@ describe RaidsController, "GET index" do
     get :index
   end
 end
+
+describe RaidsController, "GET show" do
+  it "should show a list of encounters for a raid" do
+    Raid.should_receive( :find ).with( 42 )
+    get :show, :id => 42
+  end
+end

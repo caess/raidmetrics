@@ -19,8 +19,8 @@ Given /^that no raids have been analyzed$/ do
   Raid.delete_all
 end
 
-Then /^"([^\"]*)" should be displayed$/ do |arg1|
+Then /^"There are no raids currently analyzed." should be displayed$/ do
   visit raids_index_path
   
-  response.should contain( arg1 )
+  response.should contain( "There are no raids currently analyzed." )
 end

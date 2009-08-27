@@ -9,7 +9,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090826022517) do
+ActiveRecord::Schema.define(:version => 20090827032424) do
+
+  create_table "encounters", :force => true do |t|
+    t.string   "note"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "raid_id"
+  end
 
   create_table "raids", :force => true do |t|
     t.string   "note"
