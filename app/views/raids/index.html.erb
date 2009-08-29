@@ -1,7 +1,7 @@
 <% if @raids.length > 0 then %>
 <ul>
     <% @raids.each do |raid| %>
-    <li><%=h raid.note %></li>
+    <li><%= link_to( raid.note, raids_show_path( :id => raid.id ) ) %></li>
     <% end %>
 </ul>
 <% else %>
