@@ -1,0 +1,15 @@
+require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
+
+describe UnitDiedEvent do
+  before(:each) do
+    @event = UnitDiedEvent.new
+  end
+  
+  it "should not have a prefix" do
+    @event.prefix.should be_nil
+  end
+  
+  it "should not have a suffix" do
+    @event.suffix.should be_nil 
+  end
+end

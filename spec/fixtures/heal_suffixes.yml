@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  amount: 1
+  overheal: 1
+  absorbed: 1
+  critical: 1
+
+two:
+  amount: 1
+  overheal: 1
+  absorbed: 1
+  critical: 1

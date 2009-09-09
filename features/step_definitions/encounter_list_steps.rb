@@ -1,5 +1,5 @@
 Given /^that a raid has been imported$/ do
-  @raid = Raid.create!( :note => "This is a raid" )
+  @raid = Raid.create!( :time => Time.now, :note => "This is a raid" )
 end
 
 Given /^that the raid has encounters$/ do

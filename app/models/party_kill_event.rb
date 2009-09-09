@@ -1,0 +1,2 @@
+class PartyKillEvent < Event
+end

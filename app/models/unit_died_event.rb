@@ -1,0 +1,2 @@
+class UnitDiedEvent < Event
+end

@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  amount: 1
+  power_type: 1
+  extra_amount: 1
+
+two:
+  amount: 1
+  power_type: 1
+  extra_amount: 1

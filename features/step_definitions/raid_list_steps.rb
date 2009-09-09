@@ -1,6 +1,6 @@
 Given /^that raids have been analyzed$/ do
-  raid1 = Raid.create!( :note => "Raid the First" )
-  raid2 = Raid.create!( :note => "Raid the Second" )
+  raid1 = Raid.create!( :note => "Raid the First", :time => Time.now )
+  raid2 = Raid.create!( :note => "Raid the Second", :time => Time.now )
 end
 
 When /^I request a list of raids$/ do

@@ -2,7 +2,7 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe Encounter do
   before(:each) do
-    @raid = Raid.create!
+    @raid = Raid.new( :time => Time.now )
     
     @valid_attributes = {
       :raid => @raid,
