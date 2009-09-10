@@ -84,7 +84,7 @@ class EventFactory
   end
   
   def build( raw_line )
-    line = raw_line.scan( /"[^"]*"|[^, ]+/ ).map { |part| part[ 0 ] == '"' ? part.slice( 1, part.length - 2 ) : part }
+    line = raw_line.scan( /"[^"]+"|[^, ]+/ ).map { |part| part[ 0 ].chr == '"' ? part.slice( 1, part.length - 2 ) : part }
     
     time = Time.parse( line.shift + " " + line.shift )
     type = line.shift
