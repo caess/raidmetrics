@@ -26,9 +26,9 @@ describe Event do
     event.should_not be_valid
   end
   
-  it "should not create a new instance if both the source and destination are missing" do
-    event = Event.new( :raid => @raid, :offset => 0 )
-    event.should_not be_valid
+  it "should be valid even if the source and destination are both nil" do
+    event = Event.new( :raid => @raid, :offset => 0, :source => nil, :destination => nil )
+    event.should be_valid
   end
   
   context "#process" do
