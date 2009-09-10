@@ -1,5 +1,5 @@
 class SpellInterruptEvent < Event
-  validates_presence_of :prefiX
+  validates_presence_of :prefix
   validates_presence_of :suffix
   
   delegate :spell, :to => :prefix
