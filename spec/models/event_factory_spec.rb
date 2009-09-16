@@ -34,7 +34,7 @@ describe EventFactory do
     event.should_not be_glancing
     event.should_not be_crushing
   end
-  
+
   it "should create a DAMAGE_SHIELD_MISSED event from a DAMAGE_SHIELD_MISSED line" do
     @factory.raid = Raid.new( :time => Time.parse( '7/25 20:37:00' ) )
     
@@ -59,7 +59,7 @@ describe EventFactory do
     event.miss_type.should == resisted
     event.amount.should == 0
   end
-  
+
   it "should create a DAMAGE_SPLIT event from a DAMAGE_SPLIT line" do
     @factory.raid = Raid.new( :time => Time.parse( '7/2 20:11:00' ) )
     
@@ -91,7 +91,7 @@ describe EventFactory do
     event.should_not be_glancing
     event.should_not be_crushing
   end
-  
+
   it "should create an ENCHANT_APPLIED event from an ENCHANT_APPLIED line" do
     @factory.raid = Raid.new( :time => Time.parse( '7/2 19:48:15' ) )
     
@@ -114,7 +114,7 @@ describe EventFactory do
     event.enchant.should == flametongue
     event.item.should    == torch
   end
-  
+
   it "should create an ENCHANT_REMOVED event from an ENCHANT_REMOVED line" do
     @factory.raid = Raid.new( :time => Time.parse( '7/2 19:48:15' ) )
     
@@ -168,7 +168,7 @@ describe EventFactory do
     event.should_not be_glancing
     event.should_not be_crushing
   end
-  
+
   it "should create a PARTY_KILL event from a PARTY_KILL line" do
     @factory.raid = Raid.new( :time => Time.parse( '7/2 20:02:00' ) )
     
@@ -187,7 +187,7 @@ describe EventFactory do
     event.source_flags.should == 0x511
     event.destination_flags.should == 0x10a48
   end
-  
+
   it "should create a RANGE_DAMAGE event from a RANGE_DAMAGE line" do
     @factory.raid = Raid.new( :time => Time.parse( '7/2 21:37:00' ) )
 
@@ -217,7 +217,7 @@ describe EventFactory do
     event.should_not be_glancing
     event.should_not be_crushing
   end
-  
+
   it "should create a RANGE_MISSED event from a RANGE_MISSED line" do
     @factory.raid = Raid.new( :time => Time.parse( '7/2 21:37:00' ) )
     
@@ -242,7 +242,7 @@ describe EventFactory do
     event.miss_type.should == missed
     event.amount.should == 0
   end
-  
+
   it "should create a SPELL_AURA_APPLIED event from a SPELL_AURA_APPLIED line" do
     @factory.raid = Raid.new( :time => Time.parse( '7/2 19:47:00' ) )
     
@@ -290,7 +290,7 @@ describe EventFactory do
     event.should be_buff
     event.amount.should == 2
   end
-  
+
   it "should create a SPELL_AURA_BROKEN event from a SPELL_AURA_BROKEN line" do
     @factory.raid = Raid.new( :time => Time.parse( '7/13 20:27:00' ) )
     
@@ -314,7 +314,7 @@ describe EventFactory do
     
     event.should_not be_buff
   end
-  
+
   it "should create a SPELL_AURA_BROKEN_SPELL event from a SPELL_AURA_BROKEN_SPELL line" do
     @factory.raid = Raid.new( :time => Time.parse( '7/2 22:36:00' ) )
 
@@ -364,7 +364,7 @@ describe EventFactory do
 
     event.should be_buff
   end
-    
+
   it "should create a SPELL_AURA_REMOVED event from a SPELL_AURA_REMOVED line" do
     @factory.raid = Raid.new( :time => Time.parse( '7/2 23:07:17' ) )
     
@@ -411,7 +411,7 @@ describe EventFactory do
     event.should_not be_buff
     event.amount.should == 91
   end
-  
+
   it "should create a SPELL_BUILDING_DAMAGE event from a SPELL_BUIDLING_DAMAGE line" do
     @factory.raid = Raid.new( :time => Time.parse( '7/25 19:58:00' ) )
     

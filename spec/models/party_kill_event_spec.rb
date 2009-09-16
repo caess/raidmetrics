@@ -5,11 +5,11 @@ describe PartyKillEvent do
     @event = PartyKillEvent.new
   end
   
-  it "should have no prefix" do
+  it "should have not have a prefix" do
     @event.prefix.should be_nil
   end
   
-  it "should have no suffix" do
+  it "should have not have a suffix" do
     @event.suffix.should be_nil
   end
 end

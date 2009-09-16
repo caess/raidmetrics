@@ -5,29 +5,11 @@ describe SpellAuraAppliedDoseEvent do
     @event = SpellAuraAppliedDoseEvent.new
   end
   
-  it "should have :prefix be a SpellPrefix" do
-    @event.prefix.class.to_s.should == "SpellPrefix"
+  it "should have a SPELL prefix" do
+    @event.prefix.should == "SPELL"
   end
   
-  it "should have :suffix be an AuraDoseSuffix" do
-    @event.suffix.class.to_s.should == "AuraDoseSuffix"
-  end
-  
-  it "should delegate :spell to :prefix" do
-    @event.prefix.should_receive( :spell )
-    
-    @event.spell
-  end
-  
-  it "should delegate :buff? to :suffix" do
-    @event.suffix.should_receive( :buff? )
-    
-    @event.buff?
-  end
-  
-  it "should delegate :amount to :suffix" do
-    @event.suffix.should_receive( :amount )
-    
-    @event.amount
+  it "should have an AURA_DOSE suffix" do
+    @event.suffix.should == "AURA_DOSE"
   end
 end

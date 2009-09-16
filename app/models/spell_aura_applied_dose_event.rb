@@ -1,14 +1,4 @@
 class SpellAuraAppliedDoseEvent < Event
-  validates_presence_of :prefix
-  validates_presence_of :suffix
-  
-  delegate :spell, :to => :prefix
-  delegate :buff?, :amount, :to => :suffix
-  
-  def initialize( params = {} )
-    super( params )
-    
-    self.prefix = SpellPrefix.new if not self.prefix
-    self.suffix = AuraDoseSuffix.new if not self.suffix
-  end
+  use_spell_prefix
+  use_aura_dose_suffix
 end

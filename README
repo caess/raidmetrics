@@ -14,15 +14,12 @@ IMPORTANT: Unless you know what you're doing, do not deploy off the master
 branch of the repository.  Use tagged releases or download the release file
 from the website.
 
-Also, the log import functionality is still in flux.  If you deploy this
-application before all work on importing log files is settled, you may need to
-clear your production databse and reimport log files for future releases.
-
 Requirements
 ------------
 Currently no gems are bundled within the RaidMetrics distribution.  In order
-to use RaidMetrics, you will need to have the rails gem installed.  You will
-also need to have a gem installed for your desired database.
+to use RaidMetrics, you will need to have the rails and ar-extensions gems
+installed.  You will also need to have a gem installed for your desired 
+database.
 
 If you wish to run the tests and features, you will need to install the rspec,
 rspec-rails, spork, webrat, and cucumber gems.
@@ -32,9 +29,12 @@ should not work with other databases.
 
 Installing
 ----------
-The only application configuration required is to set up the databse.  To do
-this, copy config/database-example.yml to config/database.yml and edit
-appropriately.
+Set up the databse by copying config/database-example.yml to 
+config/database.yml and editing appropriately.
+
+If you are using a database other than MySQL, you will need to change the
+require lines at the top of app/models/log_file_importer.rb to make sure
+that ar-extensions is using the optimal routines for your database.
 
 Importing log files
 -------------------

@@ -5,29 +5,11 @@ describe SpellPeriodicEnergizeEvent do
     @event = SpellPeriodicEnergizeEvent.new
   end
   
-  it "should have :prefix be a SpellPrefix" do
-    @event.prefix.class.to_s.should == "SpellPrefix"
+  it "should have a SPELL prefix" do
+    @event.prefix.should == "SPELL"
   end
   
-  it "should have :suffix be an EnergizeSuffix" do
-    @event.suffix.class.to_s.should == "EnergizeSuffix"
-  end
-
-  it "should delegate :spell to :prefix" do
-    @event.prefix.should_receive( :spell )
-    
-    @event.spell
-  end
-
-  it "should delegate :amount to :suffix" do
-    @event.suffix.should_receive( :amount )
-    
-    @event.amount
-  end
-  
-  it "should delegate :power_type to :suffix" do
-    @event.suffix.should_receive( :power_type )
-    
-    @event.power_type
+  it "should have an ENERGIZE suffix" do
+    @event.suffix.should == "ENERGIZE"
   end
 end

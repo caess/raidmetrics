@@ -31,31 +31,33 @@ describe Event do
     event.should be_valid
   end
   
+  it "should have no prefix" do
+    event = Event.new( @valid_attributes )
+    
+    event.prefix.should be_nil
+  end
+  
+  it "should have no suffix" do
+    event = Event.new( @valid_attributes )
+    
+    event.suffix.should be_nil
+  end
+  
   context "#process" do
-    before( :each ) do
-      @factory = mock( "EventFactory" )
+    it "should call #process_prefix" do
+      event = Event.new( @valid_attributes )
       
-      @args = "Foo"
+      event.should_receive( :process_prefix )
       
-      @event = Event.new
+      event.process( nil, nil )
     end
-    
-    it "should call prefix#process" do
-      prefix = SpellPrefix.new
-      prefix.should_receive( :process ).with( @factory, @args )
+
+    it "should call #process_suffix" do
+      event = Event.new( @valid_attributes )
       
-      @event.prefix = prefix
+      event.should_receive( :process_suffix )
       
-      @event.process( @factory, @args )
-    end
-    
-    it "should call suffix#process" do
-      suffix = AuraSuffix.new
-      suffix.should_receive( :process ).with( @factory, @args )
-      
-      @event.suffix = suffix
-      
-      @event.process( @factory, @args )
+      event.process( nil, nil )
     end
   end
 end

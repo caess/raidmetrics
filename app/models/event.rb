@@ -1,4 +1,8 @@
 class Event < ActiveRecord::Base
+  include MapColumns
+  include EventPrefixes
+  include EventSuffixes
+  
   validates_presence_of :raid
   validates_presence_of :offset
   
@@ -6,14 +10,24 @@ class Event < ActiveRecord::Base
   belongs_to :source, :class_name => "Unit", :foreign_key => "source_id"
   belongs_to :destination, :class_name => "Unit", :foreign_key => "destination_id"
   
-  belongs_to :prefix, :polymorphic => true
-  belongs_to :suffix, :polymorphic => true
-  
-  def prepare
+  def process( factory, line )
+    process_prefix( factory, line )
+    process_suffix( factory, line )
   end
   
-  def process( factory, line )
-    self.prefix.process( factory, line ) if self.prefix
-    self.suffix.process( factory, line ) if self.suffix
+  def process_prefix( factory, line )
+    # Empty method.
+  end
+  
+  def process_suffix( factory, line )
+    # Empty method.
+  end
+  
+  def prefix
+    nil
+  end
+  
+  def suffix
+    nil
   end
 end

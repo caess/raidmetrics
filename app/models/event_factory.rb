@@ -3,6 +3,45 @@ class EventFactory
   
   def initialize
     @raid = nil
+    
+    reset_cache
+  end
+  
+  def reset_cache
+    @enchant_cache = Hash.new
+    Enchant.find_each do |enchant|
+      @enchant_cache[ enchant.name ] = enchant
+    end
+    
+    @environment_cache = Hash.new
+    EnvironmentalType.find_each do |environment|
+      @environment_cache[ environment.name ] = environment
+    end
+    
+    @fail_cache = Hash.new
+    FailType.find_each do |fail|
+      @fail_cache[ fail.name ] = name
+    end
+    
+    @item_cache = Hash.new
+    Item.find_each do |item|
+      @item_cache[ item.item_id ] = item
+    end
+    
+    @miss_cache = Hash.new
+    MissType.find_each do |miss|
+      @miss_cache[ miss.name ] = miss
+    end
+    
+    @spell_cache = Hash.new
+    Spell.find_each do |spell|
+      @spell_cache[ spell.spell_id ] = spell
+    end
+    
+    @unit_cache = Hash.new
+    Unit.find_each do |unit|
+      @unit_cache[ unit.guid ] = unit
+    end
   end
   
   def new_event( type )
@@ -12,73 +51,65 @@ class EventFactory
   end
   
   def enchant( name )
-    enchant = Enchant.find_by_name( name )
+    return @enchant_cache[ name ] if @enchant_cache.has_key?( name )
     
-    if not enchant
-      enchant = Enchant.create!( :name => name )
-    end
+    enchant = Enchant.create!( :name => name )    
+    @enchant_cache[ name ] = enchant
     
     enchant
   end
   
   def environmental_type( name )
-    environmental_type = EnvironmentalType.find_by_name( name )
+    return @environment_cache[ name ] if @environment_cache.has_key?( name )
     
-    if not environmental_type
-      environmental_type = EnvironmentalType.create!( :name => name )
-    end
+    environmental_type = EnvironmentalType.create!( :name => name )
+    @environment_cache[ name ] = environmental_type
     
     environmental_type
   end
   
   def fail_type( name )
-    fail_type = FailType.find_by_name( name )
-    
-    if not fail_type
-      fail_type = FailType.create!( :name => name )
-    end
+    return @fail_cache[ name ] if @fail_cache.has_key?( name )
+
+    fail_type = FailType.create!( :name => name )
+    @fail_cache[ name ] = fail_type
     
     fail_type      
   end
   
   def item( id, name )
-    item = Item.find_by_item_id( id )
-    
-    if not item
-      item = Item.create!( :item_id => id, :name => name )
-    end
+    return @item_cache[ id ] if @item_cache.has_key?( id )
+
+    item = Item.create!( :item_id => id, :name => name )
+    @item_cache[ id ] = item
     
     item
   end
   
   def miss_type( name )
-    miss_type = MissType.find_by_name( name )
-    
-    if not miss_type
-      miss_type = MissType.create!( :name => name )
-    end
+    return @miss_cache[ name ] if @miss_cache.has_key?( name )
+
+    miss_type = MissType.create!( :name => name )
+    @miss_cache[ name ] = miss_type
     
     miss_type
   end
   
   def spell( id, name, school )
-    spell = Spell.find_by_spell_id( id )
-    
-    if not spell
-      spell = Spell.create!( :name => name, :spell_id => id, :school => school )
-    end
+    return @spell_cache[ id ] if @spell_cache.has_key?( id )
+
+    spell = Spell.create!( :name => name, :spell_id => id, :school => school )
+    @spell_cache[ id ] = spell
     
     spell
   end
   
   def unit( guid, name )
     return nil if guid == 0
-    
-    unit = Unit.find_by_guid( guid )
-    
-    if not unit
-      unit = Unit.create!( :name => name, :guid => guid )
-    end
+    return @unit_cache[ guid ] if @unit_cache.has_key?( guid )
+
+    unit = Unit.create!( :name => name, :guid => guid )
+    @unit_cache[ guid ] = unit
     
     unit
   end

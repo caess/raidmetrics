@@ -4,18 +4,12 @@ describe SpellSummonEvent do
   before(:each) do
     @event = SpellSummonEvent.new
   end
-
-  it "should have :prefix be a SpellPrefix" do
-    @event.prefix.class.to_s.should == "SpellPrefix"
+  
+  it "should have a SPELL prefix" do
+    @event.prefix.should == "SPELL"
   end
-
+  
   it "should not have a suffix" do
     @event.suffix.should be_nil
-  end
-
-  it "should delegate :spell to :prefix" do
-    @event.prefix.should_receive( :spell )
-    
-    @event.spell
   end
 end

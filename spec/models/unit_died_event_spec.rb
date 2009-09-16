@@ -5,11 +5,11 @@ describe UnitDiedEvent do
     @event = UnitDiedEvent.new
   end
   
-  it "should not have a prefix" do
+  it "should have not have a prefix" do
     @event.prefix.should be_nil
   end
   
-  it "should not have a suffix" do
-    @event.suffix.should be_nil 
+  it "should have not have a suffix" do
+    @event.suffix.should be_nil
   end
 end
