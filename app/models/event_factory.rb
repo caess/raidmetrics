@@ -20,7 +20,7 @@ class EventFactory
     
     @fail_cache = Hash.new
     FailType.find_each do |fail|
-      @fail_cache[ fail.name ] = name
+      @fail_cache[ fail.name ] = fail
     end
     
     @item_cache = Hash.new
