@@ -14,6 +14,7 @@ describe EventFactory do
     
     line = '7/2 23:07:15.823  DAMAGE_SHIELD,0x020000000032D896,"Mathom",0x514,0xF15000815E01027D,"Ignis the Furnace Master",0x10a48,53307,"Thorns",0x8,127,0,8,0,0,0,nil,nil,nil'
     
+    @factory.reset_cache
     event = @factory.build( line )
     event.should_not be_nil
     
@@ -45,6 +46,7 @@ describe EventFactory do
     
     line = '7/25 20:37:05.099  DAMAGE_SHIELD_MISSED,0x020000000032D896,"Mathom",0x514,0xF1500080A201C21C,"Kologarn",0x10a48,53307,"Thorns",0x8,RESIST,0'
     
+    @factory.reset_cache
     event = @factory.build( line )
     event.should_not be_nil
     
@@ -69,6 +71,7 @@ describe EventFactory do
     
     line = '7/2 20:11:46.500  DAMAGE_SPLIT,0x020000000032D896,"Mathom",0x8000514,0x02000000003192E9,"Rayen",0x512,64205,"Divine Sacrifice",0x1,0,0,16,0,0,0,nil,nil,nil'
     
+    @factory.reset_cache
     event = @factory.build( line )
     event.should_not be_nil
     
@@ -101,6 +104,7 @@ describe EventFactory do
     
     line = '7/2 19:48:16.941  ENCHANT_APPLIED,0x0200000000D8ACBF,"Cusimanse",0x512,0x0200000000D8ACBF,"Cusimanse",0x512,"Flametongue 10",40395,"Torch of Holy Fire"'
     
+    @factory.reset_cache
     event = @factory.build( line )
     event.should_not be_nil
     
@@ -124,6 +128,7 @@ describe EventFactory do
     
     line = '7/2 19:48:16.941  ENCHANT_REMOVED,0x0000000000000000,nil,0x80000000,0x0200000000D8ACBF,"Cusimanse",0x512,"Flametongue 10",40395,"Torch of Holy Fire"'
     
+    @factory.reset_cache
     event = @factory.build( line )
     event.should_not be_nil
     
@@ -146,6 +151,7 @@ describe EventFactory do
     
     line = '7/2 20:08:42.314  ENVIRONMENTAL_DAMAGE,0x0000000000000000,nil,0x80000000,0x0200000000322CF9,"Phaedra",0x511,FALLING,2622,0,1,0,0,0,nil,nil,nil'
     
+    @factory.reset_cache
     event = @factory.build( line )
     event.should_not be_nil
     
@@ -177,6 +183,7 @@ describe EventFactory do
     
     line = '7/2 20:03:18.350  PARTY_KILL,0x0200000000322CF9,"Phaedra",0x511,0xF1300083DA0101F9,"Dark Rune Thunderer",0x10a48'
     
+    @factory.reset_cache
     event = @factory.build( line )
     event.should_not be_nil
     
@@ -197,6 +204,7 @@ describe EventFactory do
     
     line = '7/2 21:37:03.310  RANGE_DAMAGE,0x0200000000322CF9,"Phaedra",0x511,0xF1300081F7023FE9,"General Vezax",0x10a48,5019,"Shoot",0x1,657,0,2,0,0,0,nil,nil,nil'
     
+    @factory.reset_cache
     event = @factory.build( line )
     event.should_not be_nil
     
@@ -228,6 +236,7 @@ describe EventFactory do
     
     line = '7/2 21:37:05.485  RANGE_MISSED,0x0200000000322CF9,"Phaedra",0x511,0xF1300081F7023FE9,"General Vezax",0x10a48,5019,"Shoot",0x1,MISS'
     
+    @factory.reset_cache
     event = @factory.build( line )
     event.should_not be_nil
     
@@ -252,6 +261,7 @@ describe EventFactory do
     
     line = '7/2 19:47:27.438  SPELL_AURA_APPLIED,0x020000000032D896,"Mathom",0x514,0x0200000000322CF9,"Phaedra",0x511,24932,"Leader of the Pack",0x1,BUFF'
     
+    @factory.reset_cache
     event = @factory.build( line )
     event.should_not be_nil
     
@@ -275,6 +285,7 @@ describe EventFactory do
     
     line = '7/2 20:02:22.427  SPELL_AURA_APPLIED_DOSE,0x0200000000322CF9,"Phaedra",0x511,0x0200000000322CF9,"Phaedra",0x511,60486,"Illustration of the Dragon Soul",0x1,BUFF,2'
     
+    @factory.reset_cache
     event = @factory.build( line )
     event.should_not be_nil
     
@@ -300,6 +311,7 @@ describe EventFactory do
     
     line = '7/13 20:27:08.321  SPELL_AURA_BROKEN,0x0200000002C26127,"Acalan",0x1248,0x0200000000306143,"Yshan",0x514,2094,"Blind",0x1,DEBUFF'
     
+    @factory.reset_cache
     event = @factory.build( line )
     event.should_not be_nil
     
@@ -325,6 +337,7 @@ describe EventFactory do
     
     line = '7/2 22:36:50.757  SPELL_AURA_BROKEN_SPELL,0xF1300082F403184A,"Saronite Animus",0x10a48,0x0200000000322CF9,"Phaedra",0x2000511,66,"Invisibility",0x40,63420,"Profound Darkness",32,BUFF'
     
+    @factory.reset_cache
     event = @factory.build( line )
     event.should_not be_nil
     
@@ -350,6 +363,7 @@ describe EventFactory do
 
     line = '7/2 19:59:52.180  SPELL_AURA_REFRESH,0x020000000032BB59,"Alamanda",0x512,0x0200000000322CF9,"Phaedra",0x511,48074,"Prayer of Spirit",0x2,BUFF'
 
+    @factory.reset_cache
     event = @factory.build( line )
     event.should_not be_nil
 
@@ -373,6 +387,7 @@ describe EventFactory do
     
     line = '7/2 23:07:17.378  SPELL_AURA_REMOVED,0x0200000000322CF9,"Phaedra",0x511,0x0200000000322CF9,"Phaedra",0x511,48108,"Hot Streak",0x1,BUFF'
     
+    @factory.reset_cache
     event = @factory.build( line )
     event.should_not be_nil
     
@@ -396,6 +411,7 @@ describe EventFactory do
 
     line = '7/2 23:25:26.661  SPELL_AURA_REMOVED_DOSE,0x0000000000000000,nil,0x80000000,0x0200000000322CF9,"Phaedra",0x511,63050,"Sanity",0x1,DEBUFF,91'
 
+    @factory.reset_cache
     event = @factory.build( line )
     event.should_not be_nil
 
@@ -421,6 +437,7 @@ describe EventFactory do
     
     line = '7/25 19:58:25.009  SPELL_BUILDING_DAMAGE,0xF15000818F014D0C,"Salvaged Demolisher Mechanic Seat",0x1111,0xF11002F76E0021B4,"Storm Beacon",0x4228,62635,"Mortar",0x4,351,0,4,0,0,0,nil,nil,nil'
     
+    @factory.reset_cache
     event = @factory.build( line )
     event.should_not be_nil
     
@@ -451,6 +468,7 @@ describe EventFactory do
     
     line = '7/2 20:03:18.676  SPELL_CAST_FAILED,0x0200000000322CF9,"Phaedra",0x511,0x0000000000000000,nil,0x80000000,42833,"Fireball",0x4,"Interrupted"'
     
+    @factory.reset_cache
     event = @factory.build( line )
     event.should_not be_nil
     
@@ -474,6 +492,7 @@ describe EventFactory do
     
     line = '7/2 20:02:20.085  SPELL_CAST_START,0x0200000000322CF9,"Phaedra",0x511,0x0000000000000000,nil,0x80000000,42833,"Fireball",0x4'
     
+    @factory.reset_cache
     event = @factory.build( line )
     event.should_not be_nil
     
@@ -495,6 +514,7 @@ describe EventFactory do
     
     line = '7/2 20:00:25.181  SPELL_CAST_SUCCESS,0x0200000000322CF9,"Phaedra",0x511,0x0000000000000000,nil,0x80000000,43046,"Molten Armor",0x4'
     
+    @factory.reset_cache
     event = @factory.build( line )
     event.should_not be_nil
     
@@ -517,6 +537,7 @@ describe EventFactory do
     
     line = '7/2 19:50:28.453  SPELL_CREATE,0x020000000030A56A,"Lochnar",0x512,0xF11002F22600253E,"Refreshment Portal",0x4228,58659,"Ritual of Refreshment",0x40'
     
+    @factory.reset_cache
     event = @factory.build( line )
     event.should_not be_nil
     
@@ -539,6 +560,7 @@ describe EventFactory do
     
     line = '7/2 20:02:23.568  SPELL_DAMAGE,0x0200000000322CF9,"Phaedra",0x511,0xF1300083DB0101F8,"Dark Rune Ravager",0x8010a48,42833,"Fireball",0x4,9961,0,4,0,0,0,1,nil,nil'
     
+    @factory.reset_cache
     event = @factory.build( line )
     event.should_not be_nil
     
@@ -571,6 +593,7 @@ describe EventFactory do
     
     line = '7/13 20:25:49.464  SPELL_DISPEL,0x0200000000322CF9,"Phaedra",0x511,0x0200000000322CF9,"Phaedra",0x511,475,"Remove Curse",0x40,64157,"Curse of Doom",32,DEBUFF'
     
+    @factory.reset_cache
     event = @factory.build( line )
     event.should_not be_nil
     
@@ -596,6 +619,7 @@ describe EventFactory do
     
     line = '7/2 20:38:40.613  SPELL_DISPEL_FAILED,0x02000000026B2324,"Fineas",0x1000514,0x02000000026B2324,"Fineas",0x1000514,988,"Dispel Magic",0x2,66346,"Ice Nova",16'
     
+    @factory.reset_cache
     event = @factory.build( line )
     event.should_not be_nil
     
@@ -619,6 +643,7 @@ describe EventFactory do
     
     line = '7/2 20:02:06.454  SPELL_ENERGIZE,0x020000000032D896,"Mathom",0x514,0x020000000032D896,"Mathom",0x514,17057,"Furor",0x1,10,1'
     
+    @factory.reset_cache
     event = @factory.build( line )
     event.should_not be_nil
     
@@ -643,6 +668,7 @@ describe EventFactory do
     
     line = '7/13 22:47:03.585  SPELL_EXTRA_ATTACKS,0x0200000000307EB8,"Shalandrax",0x514,0x0200000000307EB8,"Shalandrax",0x514,16459,"Sword Specialization",0x1,1'
     
+    @factory.reset_cache
     event = @factory.build( line )
     event.should_not be_nil
     
@@ -667,6 +693,7 @@ describe EventFactory do
     
     line = '7/2 20:03:15.947  SPELL_HEAL,0x02000000026B2324,"Fineas",0x1000514,0x0200000000322CF9,"Phaedra",0x511,48089,"Circle of Healing",0x2,3066,3066,nil'
     
+    @factory.reset_cache
     event = @factory.build( line )
     event.should_not be_nil
     
@@ -694,6 +721,7 @@ describe EventFactory do
     
     line = '9/3 19:51:47.552  SPELL_HEAL,0x02000000026B2324,"Fineas",0x512,0x0200000000322CF9,"Phaedra",0x511,48072,"Prayer of Healing",0x2,6527,6527,0,1'
     
+    @factory.reset_cache
     event = @factory.build( line )
     event.should_not be_nil
     
@@ -720,6 +748,7 @@ describe EventFactory do
     
     line = '7/2 20:22:15.691  SPELL_INSTAKILL,0x02000000003192E9,"Rayen",0x512,0x02000000003192E9,"Rayen",0x512,19752,"Divine Intervention",0x2'
     
+    @factory.reset_cache
     event = @factory.build( line )
     event.should_not be_nil
     
@@ -743,6 +772,7 @@ describe EventFactory do
     
     line = '7/2 20:07:37.519  SPELL_INTERRUPT,0x0200000000322CF9,"Phaedra",0x511,0xF1300081560103FE,"Dark Rune Acolyte",0x10a48,2139,"Counterspell",0x40,62334,"Greater Heal",2'
     
+    @factory.reset_cache
     event = @factory.build( line )
     event.should_not be_nil
     
@@ -767,6 +797,7 @@ describe EventFactory do
     
     line = '1/19 20:26:41.090  SPELL_LEECH,0x0000000000335D21,"Mengamy",0x514,0xF140086BD200003A,"Ghaathun",0x1114,59092,"Dark Pact",0x20,3155,0,3155'
     
+    @factory.reset_cache
     event = @factory.build( line )
     event.should_not be_nil
     
@@ -794,6 +825,7 @@ describe EventFactory do
     
     line = '7/2 20:10:46.903  SPELL_MISSED,0x0200000000322CF9,"Phaedra",0x511,0xF130008061010406,"Thorim",0x10a48,55362,"Living Bomb",0x4,MISS'
     
+    @factory.reset_cache
     event = @factory.build( line )
     event.should_not be_nil
     
@@ -819,6 +851,7 @@ describe EventFactory do
     
     line = '7/2 20:02:21.490  SPELL_PERIODIC_DAMAGE,0x0200000000322CF9,"Phaedra",0x511,0xF1300083DB0101F8,"Dark Rune Ravager",0x8010a48,55360,"Living Bomb",0x4,865,0,4,0,0,0,nil,nil,nil'
     
+    @factory.reset_cache
     event = @factory.build( line )
     event.should_not be_nil
     
@@ -851,6 +884,7 @@ describe EventFactory do
     
     line = '7/13 20:24:32.887  SPELL_PERIODIC_DRAIN,0xF1300084C10183C0,"Corruptor Tentacle",0xa48,0x02000000003192E9,"Rayen",0x514,64152,"Draining Poison",0x8,1400,0,0'
     
+    @factory.reset_cache
     event = @factory.build( line )
     event.should_not be_nil
     
@@ -876,6 +910,7 @@ describe EventFactory do
     
     line = '7/2 20:00:26.384  SPELL_PERIODIC_ENERGIZE,0x02000000003192E9,"Rayen",0x512,0x02000000003192E9,"Rayen",0x512,54428,"Divine Plea",0x2,325,0'
     
+    @factory.reset_cache
     event = @factory.build( line )
     event.should_not be_nil
     
@@ -901,6 +936,7 @@ describe EventFactory do
     
     line = '7/2 19:59:51.594  SPELL_PERIODIC_HEAL,0x0200000000306143,"Yshan",0x514,0x02000000003192E9,"Rayen",0x512,53251,"Wild Growth",0x8,845,0,nil'
     
+    @factory.reset_cache
     event = @factory.build( line )
     event.should_not be_nil
     
@@ -927,6 +963,7 @@ describe EventFactory do
     
     line = '9/3 23:15:11.465  SPELL_PERIODIC_HEAL,0x02000000003192E9,"Rayen",0x514,0x02000000003192E9,"Rayen",0x514,34299,"Improved Leader of the Pack",0x1,1181,0,0,nil'
     
+    @factory.reset_cache
     event = @factory.build( line )
     event.should_not be_nil
     
@@ -954,6 +991,7 @@ describe EventFactory do
     
     line = '7/26 22:55:07.266  SPELL_PERIODIC_LEECH,0x0200000001486736,"Trakas",0x8001248,0x0200000000322CF9,"Phaedra",0x511,3034,"Viper Sting",0x8,216,0,648'
     
+    @factory.reset_cache
     event = @factory.build( line )
     event.should_not be_nil
     
@@ -981,6 +1019,7 @@ describe EventFactory do
     
     line = '7/2 20:53:13.981  SPELL_PERIODIC_MISSED,0xF15000837301F20F,"VX-001",0x10a48,0x0200000000322CF9,"Phaedra",0x511,63677,"Heat Wave",0x4,ABSORB,2060'
     
+    @factory.reset_cache
     event = @factory.build( line )
     event.should_not be_nil
     
@@ -1006,6 +1045,7 @@ describe EventFactory do
     
     line = '7/2 20:31:45.787  SPELL_RESURRECT,0x020000000032BB59,"Alamanda",0x512,0x0200000000322CF9,"Phaedra",0x511,48171,"Resurrection",0x2'
     
+    @factory.reset_cache
     event = @factory.build( line )
     event.should_not be_nil
     
@@ -1029,6 +1069,7 @@ describe EventFactory do
     
     line = '7/2 20:19:38.575  SPELL_STOLEN,0x0200000000322CF9,"Phaedra",0x511,0xF13000806E0188EB,"Dark Rune Evoker",0x10a48,30449,"Spellsteal",0x40,62328,"Runic Mending",8,BUFF'
     
+    @factory.reset_cache
     event = @factory.build( line )
     event.should_not be_nil
     
@@ -1054,6 +1095,7 @@ describe EventFactory do
     
     line = '7/2 19:56:17.891  SPELL_SUMMON,0x0200000000D8ACBF,"Cusimanse",0x512,0xF130000A46014C64,"Earthbind Totem",0xa28,2484,"Earthbind Totem",0x1'
     
+    @factory.reset_cache
     event = @factory.build( line )
     event.should_not be_nil
     
@@ -1075,6 +1117,7 @@ describe EventFactory do
     
     line = '7/2 20:02:17.892  SWING_DAMAGE,0x020000000032D896,"Mathom",0x514,0xF1300083DB0101F8,"Dark Rune Ravager",0x8010a48,672,0,1,0,0,0,nil,1,nil'
     
+    @factory.reset_cache
     event = @factory.build( line )
     event.should_not be_nil
     
@@ -1105,6 +1148,7 @@ describe EventFactory do
     
     line = '7/2 20:02:17.622  SWING_MISSED,0xF1300083DB0101F8,"Dark Rune Ravager",0x8010a48,0x020000000032D896,"Mathom",0x514,DODGE'
     
+    @factory.reset_cache
     event = @factory.build( line )
     event.should_not be_nil
     
@@ -1126,6 +1170,7 @@ describe EventFactory do
     
     line = '7/2 20:11:05.989  UNIT_DIED,0x0000000000000000,nil,0x80000000,0x0200000000322CF9,"Phaedra",0x511'
     
+    @factory.reset_cache
     event = @factory.build( line )
     event.should_not be_nil
     
