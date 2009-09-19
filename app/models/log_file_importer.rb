@@ -48,7 +48,7 @@ class LogFileImporter
       break if count == max_lines
     end
     
-    save
+    save if @events.length > 0
   end
   
   def process( line )
