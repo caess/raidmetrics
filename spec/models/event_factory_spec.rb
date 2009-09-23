@@ -19,7 +19,7 @@ describe EventFactory do
     event.should_not be_nil
     
     event.class.name.should == "DamageShieldEvent"
-    event.offset.should == 5.823
+    event.offset.should == BigDecimal( '5.823' )
     event.source.should == mathom
     event.destination.should == ignis
     event.source_flags.should == 0x514
@@ -51,7 +51,7 @@ describe EventFactory do
     event.should_not be_nil
     
     event.class.name.should == "DamageShieldMissedEvent"
-    event.offset.should == 5.099
+    event.offset.should == BigDecimal( '5.099' )
     event.source.should == mathom
     event.destination.should == kologarn
     event.source_flags.should == 0x514
@@ -76,7 +76,7 @@ describe EventFactory do
     event.should_not be_nil
     
     event.class.name.should == "DamageSplitEvent"
-    event.offset.should == 46.500
+    event.offset.should == BigDecimal( '46.500' )
     event.source.should == mathom
     event.destination.should == rayen
     event.source_flags.should == 0x8000514
@@ -109,7 +109,7 @@ describe EventFactory do
     event.should_not be_nil
     
     event.class.name.should == "EnchantAppliedEvent"
-    event.offset.should == 1.941
+    event.offset.should == BigDecimal( '1.941' )
     event.source.should == cusimanse
     event.destination.should == cusimanse
     event.source_flags.should == 0x512
@@ -133,7 +133,7 @@ describe EventFactory do
     event.should_not be_nil
     
     event.class.name.should == "EnchantRemovedEvent"
-    event.offset.should == 1.941
+    event.offset.should == BigDecimal( '1.941' )
     event.source.should be_nil
     event.destination.should == cusimanse
     event.source_flags.should == 0x80000000
@@ -156,7 +156,7 @@ describe EventFactory do
     event.should_not be_nil
     
     event.class.name.should == "EnvironmentalDamageEvent"
-    event.offset.should == 42.314
+    event.offset.should == BigDecimal( '42.314' )
     event.source.should be_nil
     event.destination.should == phaedra
     event.source_flags.should == 0x80000000
@@ -188,7 +188,7 @@ describe EventFactory do
     event.should_not be_nil
     
     event.class.name.should == "PartyKillEvent"
-    event.offset.should == 78.350
+    event.offset.should == BigDecimal( '78.350' )
     event.source.should == phaedra
     event.destination.should == thunderer
     event.source_flags.should == 0x511
@@ -209,7 +209,7 @@ describe EventFactory do
     event.should_not be_nil
     
     event.class.name.should == "RangeDamageEvent"
-    event.offset.should == 3.310
+    event.offset.should == BigDecimal( '3.310' )
     event.source.should == phaedra
     event.destination.should == vezax
     event.source_flags.should == 0x511
@@ -241,7 +241,7 @@ describe EventFactory do
     event.should_not be_nil
     
     event.class.name.should == "RangeMissedEvent"
-    event.offset.should == 5.485
+    event.offset.should == BigDecimal( '5.485' )
     event.source.should == phaedra
     event.destination.should == vezax
     event.source_flags.should == 0x511
@@ -266,7 +266,7 @@ describe EventFactory do
     event.should_not be_nil
     
     event.class.name.should == "SpellAuraAppliedEvent"
-    event.offset.should == 27.438
+    event.offset.should == BigDecimal( '27.438' )
     event.source.should == mathom
     event.destination.should == phaedra
     event.source_flags.should == 0x514
@@ -290,7 +290,7 @@ describe EventFactory do
     event.should_not be_nil
     
     event.class.name.should == "SpellAuraAppliedDoseEvent"
-    event.offset.should == 22.427
+    event.offset.should == BigDecimal( '22.427' )
     event.source.should == phaedra
     event.destination.should == phaedra
     event.source_flags.should == 0x511
@@ -316,7 +316,7 @@ describe EventFactory do
     event.should_not be_nil
     
     event.class.name.should == "SpellAuraBrokenEvent"
-    event.offset.should == 8.321
+    event.offset.should == BigDecimal( '8.321' )
     event.source.should == acalan
     event.destination.should == yshan
     event.source_flags.should == 0x1248
@@ -342,7 +342,7 @@ describe EventFactory do
     event.should_not be_nil
     
     event.class.name.should == "SpellAuraBrokenSpellEvent"
-    event.offset.should == 50.757
+    event.offset.should == BigDecimal( '50.757' )
     event.source.should == animus
     event.destination.should == phaedra
     event.source_flags.should == 0x10a48
@@ -368,7 +368,7 @@ describe EventFactory do
     event.should_not be_nil
 
     event.class.name.should == "SpellAuraRefreshEvent"
-    event.offset.should == 52.180
+    event.offset.should == BigDecimal( '52.180' )
     event.source.should == alamanda
     event.destination.should == phaedra
     event.source_flags.should == 0x512
@@ -392,7 +392,7 @@ describe EventFactory do
     event.should_not be_nil
     
     event.class.name.should == "SpellAuraRemovedEvent"
-    event.offset.should == 0.378
+    event.offset.should == BigDecimal( '0.378' )
     event.source.should == phaedra
     event.destination.should == phaedra
     event.source_flags.should == 0x511
@@ -416,7 +416,7 @@ describe EventFactory do
     event.should_not be_nil
 
     event.class.name.should == "SpellAuraRemovedDoseEvent"
-    event.offset.should == 26.661
+    event.offset.should == BigDecimal( '26.661' )
     event.source.should be_nil
     event.destination.should == phaedra
     event.source_flags.should == 0x80000000
@@ -442,7 +442,7 @@ describe EventFactory do
     event.should_not be_nil
     
     event.class.name.should == "SpellBuildingDamageEvent"
-    event.offset.should == 25.009
+    event.offset.should == BigDecimal( '25.009' )
     event.source.should == demo
     event.destination.should == beacon
     event.source_flags.should == 0x1111
@@ -473,7 +473,7 @@ describe EventFactory do
     event.should_not be_nil
     
     event.class.name.should == "SpellCastFailedEvent"
-    event.offset.should == 18.676
+    event.offset.should == BigDecimal( '18.676' )
     event.source.should == phaedra
     event.destination.should be_nil
     event.source_flags.should == 0x511
@@ -497,7 +497,7 @@ describe EventFactory do
     event.should_not be_nil
     
     event.class.name.should == "SpellCastStartEvent"
-    event.offset.should == 20.085
+    event.offset.should == BigDecimal( '20.085' )
     event.source.should == phaedra
     event.destination.should be_nil
     event.source_flags.should == 0x511
@@ -519,7 +519,7 @@ describe EventFactory do
     event.should_not be_nil
     
     event.class.name.should == "SpellCastSuccessEvent"
-    event.offset.should == 25.181
+    event.offset.should == BigDecimal( '25.181' )
     event.source.should == phaedra
     event.destination.should be_nil
     event.source_flags.should == 0x511
@@ -542,7 +542,7 @@ describe EventFactory do
     event.should_not be_nil
     
     event.class.name.should == "SpellCreateEvent"
-    event.offset.should == 28.453
+    event.offset.should == BigDecimal( '28.453' )
     event.source.should == lochnar
     event.destination.should == portal
     event.source_flags.should == 0x512
@@ -565,7 +565,7 @@ describe EventFactory do
     event.should_not be_nil
     
     event.class.name.should == "SpellDamageEvent"
-    event.offset.should == 23.568
+    event.offset.should == BigDecimal( '23.568' )
     event.source.should == phaedra
     event.destination.should == ravager
     event.source_flags.should == 0x511
@@ -598,7 +598,7 @@ describe EventFactory do
     event.should_not be_nil
     
     event.class.name.should == "SpellDispelEvent"
-    event.offset.should == 49.464
+    event.offset.should == BigDecimal( '49.464' )
     event.source.should == phaedra
     event.destination.should == phaedra
     event.source_flags.should == 0x511
@@ -624,7 +624,7 @@ describe EventFactory do
     event.should_not be_nil
     
     event.class.name.should == "SpellDispelFailedEvent"
-    event.offset.should == 40.613
+    event.offset.should == BigDecimal( '40.613' )
     event.source.should == fineas
     event.destination.should == fineas
     event.source_flags.should == 0x1000514
@@ -648,7 +648,7 @@ describe EventFactory do
     event.should_not be_nil
     
     event.class.name.should == "SpellEnergizeEvent"
-    event.offset.should == 6.454
+    event.offset.should == BigDecimal( '6.454' )
     event.source.should == mathom
     event.destination.should == mathom
     event.source_flags.should == 0x514
@@ -673,7 +673,7 @@ describe EventFactory do
     event.should_not be_nil
     
     event.class.name.should == "SpellExtraAttacksEvent"
-    event.offset.should == 3.585
+    event.offset.should == BigDecimal( '3.585' )
     event.source.should == shalandrax
     event.destination.should == shalandrax
     event.source_flags.should == 0x514
@@ -698,7 +698,7 @@ describe EventFactory do
     event.should_not be_nil
     
     event.class.name.should == "SpellHealEvent"
-    event.offset.should == 15.947
+    event.offset.should == BigDecimal( '15.947' )
     event.source.should == fineas
     event.destination.should == phaedra
     event.source_flags.should == 0x1000514
@@ -726,7 +726,7 @@ describe EventFactory do
     event.should_not be_nil
     
     event.class.name.should == "SpellHealEvent"
-    event.offset.should == 47.552
+    event.offset.should == BigDecimal( '47.552' )
     event.source.should == fineas
     event.destination.should == phaedra
     event.source_flags.should == 0x512
@@ -753,7 +753,7 @@ describe EventFactory do
     event.should_not be_nil
     
     event.class.name.should == "SpellInstakillEvent"
-    event.offset.should == 15.691
+    event.offset.should == BigDecimal( '15.691' )
     event.source.should == rayen
     event.destination.should == rayen
     event.source_flags.should == 0x512
@@ -777,7 +777,7 @@ describe EventFactory do
     event.should_not be_nil
     
     event.class.name.should == "SpellInterruptEvent"
-    event.offset.should == 37.519
+    event.offset.should == BigDecimal( '37.519' )
     event.source.should == phaedra
     event.destination.should == acolyte
     event.source_flags.should == 0x511
@@ -802,7 +802,7 @@ describe EventFactory do
     event.should_not be_nil
     
     event.class.name.should == "SpellLeechEvent"
-    event.offset.should == 41.090
+    event.offset.should == BigDecimal( '41.090' )
     event.source.should == mengamy
     event.destination.should == ghaathun
     event.source_flags.should == 0x514
@@ -830,7 +830,7 @@ describe EventFactory do
     event.should_not be_nil
     
     event.class.name.should == "SpellMissedEvent"
-    event.offset.should == 46.903
+    event.offset.should == BigDecimal( '46.903' )
     event.source.should == phaedra
     event.destination.should == thorim
     event.source_flags.should == 0x511
@@ -856,7 +856,7 @@ describe EventFactory do
     event.should_not be_nil
     
     event.class.name.should == "SpellPeriodicDamageEvent"
-    event.offset.should == 21.490
+    event.offset.should == BigDecimal( '21.490' )
     event.source.should == phaedra
     event.destination.should == ravager
     event.source_flags.should == 0x511
@@ -889,7 +889,7 @@ describe EventFactory do
     event.should_not be_nil
     
     event.class.name.should == "SpellPeriodicDrainEvent"
-    event.offset.should == 32.887
+    event.offset.should == BigDecimal( '32.887' )
     event.source.should == tentacle
     event.destination.should == rayen
     event.source_flags.should == 0xa48
@@ -915,7 +915,7 @@ describe EventFactory do
     event.should_not be_nil
     
     event.class.name.should == "SpellPeriodicEnergizeEvent"
-    event.offset.should == 26.384
+    event.offset.should == BigDecimal( '26.384' )
     event.source.should == rayen
     event.destination.should == rayen
     event.source_flags.should == 0x512
@@ -941,7 +941,7 @@ describe EventFactory do
     event.should_not be_nil
     
     event.class.name.should == "SpellPeriodicHealEvent"
-    event.offset.should == 51.594
+    event.offset.should == BigDecimal( '51.594' )
     event.source.should == yshan
     event.destination.should == rayen
     event.source_flags.should == 0x514
@@ -968,7 +968,7 @@ describe EventFactory do
     event.should_not be_nil
     
     event.class.name.should == "SpellPeriodicHealEvent"
-    event.offset.should == 11.465
+    event.offset.should == BigDecimal( '11.465' )
     event.source.should == rayen
     event.destination.should == rayen
     event.source_flags.should == 0x514
@@ -996,7 +996,7 @@ describe EventFactory do
     event.should_not be_nil
     
     event.class.name.should == "SpellPeriodicLeechEvent"
-    event.offset.should == 7.266
+    event.offset.should == BigDecimal( '7.266' )
     event.source.should == trakas
     event.destination.should == phaedra
     event.source_flags.should == 0x8001248
@@ -1024,7 +1024,7 @@ describe EventFactory do
     event.should_not be_nil
     
     event.class.name.should == "SpellPeriodicMissedEvent"
-    event.offset.should == 13.981
+    event.offset.should == BigDecimal( '13.981' )
     event.source.should == vx001
     event.destination.should == phaedra
     event.source_flags.should == 0x10a48
@@ -1050,7 +1050,7 @@ describe EventFactory do
     event.should_not be_nil
     
     event.class.name.should == "SpellResurrectEvent"
-    event.offset.should == 45.787
+    event.offset.should == BigDecimal( '45.787' )
     event.source.should == alamanda
     event.destination.should == phaedra
     event.source_flags.should == 0x512
@@ -1074,7 +1074,7 @@ describe EventFactory do
     event.should_not be_nil
     
     event.class.name.should == "SpellStolenEvent"
-    event.offset.should == 38.575
+    event.offset.should == BigDecimal( '38.575' )
     event.source.should == phaedra
     event.destination.should == evoker
     event.source_flags.should == 0x511
@@ -1100,7 +1100,7 @@ describe EventFactory do
     event.should_not be_nil
     
     event.class.name.should == "SpellSummonEvent"
-    event.offset.should == 17.891
+    event.offset.should == BigDecimal( '17.891' )
     event.source.should == cusimanse
     event.destination.should == totem
     event.source_flags.should == 0x512
@@ -1122,7 +1122,7 @@ describe EventFactory do
     event.should_not be_nil
     
     event.class.name.should == "SwingDamageEvent"
-    event.offset.should == 17.892
+    event.offset.should == BigDecimal( '17.892' )
     event.source.should == mathom
     event.destination.should == ravager
     event.source_flags.should == 0x514
@@ -1153,7 +1153,7 @@ describe EventFactory do
     event.should_not be_nil
     
     event.class.name.should == "SwingMissedEvent"
-    event.offset.should == 17.622
+    event.offset.should == BigDecimal( '17.622' )
     event.source.should == ravager
     event.destination.should == mathom
     event.source_flags.should == 0x8010a48
@@ -1175,7 +1175,7 @@ describe EventFactory do
     event.should_not be_nil
     
     event.class.name.should == "UnitDiedEvent"
-    event.offset.should == 5.989
+    event.offset.should == BigDecimal( '5.989' )
     event.source.should be_nil
     event.destination.should == phaedra
     event.source_flags.should == 0x80000000
