@@ -19,14 +19,6 @@ class EventFactory
     class_name.constantize.new
   end
 
-  def get_unit( line )
-    guid  = line.shift.hex
-    name  = line.shift
-    flags = line.shift.hex
-
-    [ guid, name, flags ]
-  end
-  
   def build( raw_line )
     line = raw_line.scan( /"[^"]+"|[^, ]+/ ).map { |part| part[ 0 ].chr == '"' ? part.slice( 1, part.length - 2 ) : part }
     
