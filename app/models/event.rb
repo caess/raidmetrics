@@ -47,7 +47,7 @@ class Event < ActiveRecord::Base
   end
   
   def event_type
-    type = self.type
+    type = read_attribute( :type )
 
     if type.nil? or type == 'Event'
       'UNKNOWN'
