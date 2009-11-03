@@ -260,7 +260,7 @@ describe EventSuffixes do
         
         factory.should_receive( :spell ).with( @values.first.to_i, @values.second, @values.third.to_i ).and_return( @spell )
         
-        @event.process( factory, @values.clone )
+        @event.process_suffix( factory, @values.clone )
         
         @event.extra_spell.should == @spell
         @event.suffix1.should == @spell.id
@@ -271,7 +271,7 @@ describe EventSuffixes do
         factory.should_receive( :spell ).and_return( @spell )
         
         @values.fourth = "BUFF"
-        @event.process( factory, @values.clone )
+        @event.process_suffix( factory, @values.clone )
         
         @event.buff?.should be_true
       end
@@ -281,7 +281,7 @@ describe EventSuffixes do
         factory.should_receive( :spell ).and_return( @spell )
         
         @values.fourth = "DEBUFF"
-        @event.process( factory, @values.clone )
+        @event.process_suffix( factory, @values.clone )
         
         @event.buff?.should_not be_true
       end
@@ -323,19 +323,19 @@ describe EventSuffixes do
       end
       
       it "should set amount to the value of the first field" do
-        @event.process( nil, @values.clone )
+        @event.process_suffix( nil, @values.clone )
         
         @event.amount.should == @values.first.to_i
       end
       
       it "should set power_type to the value of the second field" do
-        @event.process( nil, @values.clone )
+        @event.process_suffix( nil, @values.clone )
         
         @event.power_type.should == @values.second.to_i
       end
       
       it "should set extra_amount to the value of the third field" do
-        @event.process( nil, @values.clone )
+        @event.process_suffix( nil, @values.clone )
         
         @event.extra_amount.should == @values.third.to_i
       end
@@ -376,13 +376,13 @@ describe EventSuffixes do
       end
       
       it "should set amount to the value of the first field" do
-        @event.process( nil, @values.clone )
+        @event.process_suffix( nil, @values.clone )
         
         @event.amount.should == @values.first.to_i
       end
       
       it "should set power_type to the value of the second field" do
-        @event.process( nil, @values.clone )
+        @event.process_suffix( nil, @values.clone )
         
         @event.power_type.should == @values.second.to_i
       end
@@ -422,7 +422,7 @@ describe EventSuffixes do
       end
       
       it "should set amount to the value of the first field" do
-        @event.process( nil, @values.clone )
+        @event.process_suffix( nil, @values.clone )
         
         @event.amount.should == @values.first.to_i
       end
@@ -468,7 +468,7 @@ describe EventSuffixes do
         
         factory.should_receive( :fail_type ).with( @values.first ).and_return( @interrupted )
         
-        @event.process( factory, @values.clone )
+        @event.process_suffix( factory, @values.clone )
         
         @event.fail_type.should == @interrupted
         @event.suffix1.should == @interrupted.id
@@ -512,19 +512,19 @@ describe EventSuffixes do
       end
       
       it "should set amount to the value of the first field" do
-        @event.process( nil, @values.clone )
+        @event.process_suffix( nil, @values.clone )
       
         @event.amount.should == @values.first.to_i
       end
       
       it "should set overheal to the value of the second field" do
-        @event.process( nil, @values.clone )
+        @event.process_suffix( nil, @values.clone )
         
         @event.overheal.should == @values.second.to_i
       end
       
       it "should set absorbed to the value of the third field" do
-        @event.process( nil, @values.clone )
+        @event.process_suffix( nil, @values.clone )
         
         @event.absorbed.should == @values.third.to_i
       end
@@ -610,7 +610,7 @@ describe EventSuffixes do
         
         factory.should_receive( :spell ).with( @values.first.to_i, @values.second, @values.third.to_i ).and_return( @spell )
         
-        @event.process( factory, @values.clone )
+        @event.process_suffix( factory, @values.clone )
         
         @event.extra_spell.should == @spell
         @event.suffix1.should == @spell.id
@@ -658,7 +658,7 @@ describe EventSuffixes do
         
         factory.should_receive( :miss_type ).with( @values.first ).and_return( @miss )
         
-        @event.process( factory, @values.clone )
+        @event.process_suffix( factory, @values.clone )
         
         @event.miss_type.should == @miss
         @event.suffix1.should == @miss.id
@@ -669,7 +669,7 @@ describe EventSuffixes do
         
         factory.should_receive( :miss_type ).and_return( @miss )
         
-        @event.process( factory, @values.clone )
+        @event.process_suffix( factory, @values.clone )
         
         @event.amount.should == @values.second.to_i
       end
@@ -679,7 +679,7 @@ describe EventSuffixes do
         
         factory.should_receive( :miss_type ).and_return( @miss )
         
-        @event.process( factory, [ "MISS" ] )
+        @event.process_suffix( factory, [ "MISS" ] )
         
         @event.amount.should == 0
       end

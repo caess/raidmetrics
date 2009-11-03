@@ -10,9 +10,24 @@ class Event < ActiveRecord::Base
   belongs_to :source, :class_name => "Unit", :foreign_key => "source_id"
   belongs_to :destination, :class_name => "Unit", :foreign_key => "destination_id"
   
-  def process( factory, line )
+  def process( factory, raid, line )
+    process_base_information( factory, raid, line )
     process_prefix( factory, line )
     process_suffix( factory, line )
+  end
+
+  def process_base_information( factory, raid, line )
+    self.raid = raid
+
+    time = Time.parse( line.first + " " + line.second )
+    self.offset = time - raid.time
+
+    self.source = factory.unit( line.fourth.hex, line.fifth )
+    self.source_flags = line.sixth.hex
+    self.destination = factory.unit( line.seventh.hex, line.eighth )
+    self.destination_flags = line.ninth.hex
+
+    line.slice!( 0..8 )
   end
   
   def process_prefix( factory, line )

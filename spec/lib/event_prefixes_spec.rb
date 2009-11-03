@@ -43,7 +43,7 @@ describe EventPrefixes do
         factory.should_receive( :enchant ).with( @values.first ).and_return( @flametongue )
         factory.should_receive( :item ).and_return( @torch )
         
-        @event.process( factory, @values )
+        @event.process_prefix( factory, @values )
         
         @event.enchant.should == @flametongue
         @event.prefix1.should == @flametongue.id
@@ -55,7 +55,7 @@ describe EventPrefixes do
         factory.should_receive( :enchant ).and_return( @flametongue )
         factory.should_receive( :item ).with( @values.second.to_i, @values.third ).and_return( @torch )
         
-        @event.process( factory, @values )
+        @event.process_prefix( factory, @values )
         
         @event.item.should == @torch
         @event.suffix1.should == @torch.id
@@ -102,7 +102,7 @@ describe EventPrefixes do
         
         factory.should_receive( :environmental_type ).with( @values.first ).and_return( @falling )
         
-        @event.process( factory, @values )
+        @event.process_prefix( factory, @values )
         
         @event.environmental_type.should == @falling
         @event.prefix1.should == @falling.id
@@ -149,7 +149,7 @@ describe EventPrefixes do
         
         factory.should_receive( :spell ).with( @values.first.to_i, @values.second, @values.third.hex ).and_return( @fireball )
         
-        @event.process( factory, @values )
+        @event.process_prefix( factory, @values )
         
         @event.spell.should == @fireball
         @event.prefix1.should == @fireball.id

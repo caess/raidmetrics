@@ -44,15 +44,17 @@ describe Event do
   
   context "#process" do
     it "should call #process_prefix" do
+      @event.stub!( :process_base_information )
       @event.should_receive( :process_prefix )
       
-      @event.process( nil, nil )
+      @event.process( nil, nil, nil )
     end
 
     it "should call #process_suffix" do
+      @event.stub!( :process_base_information )
       @event.should_receive( :process_suffix )
       
-      @event.process( nil, nil )
+      @event.process( nil, nil, nil )
     end
   end
   

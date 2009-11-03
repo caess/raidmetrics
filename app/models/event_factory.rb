@@ -30,23 +30,11 @@ class EventFactory
   def build( raw_line )
     line = raw_line.scan( /"[^"]+"|[^, ]+/ ).map { |part| part[ 0 ].chr == '"' ? part.slice( 1, part.length - 2 ) : part }
     
-    time = Time.parse( line.shift + " " + line.shift )
-    type = line.shift
-    
-    source_guid, source_name, source_flags = get_unit( line )
-    
-    destination_guid, destination_name, destination_flags = get_unit( line )
-    
+    type = line.third
+
     event = EventFactory.new_event( type )
-    
-    event.raid = @raid
-    event.offset = time - @raid.time
-    event.source = unit( source_guid, source_name )
-    event.destination = unit( destination_guid, destination_name )
-    event.source_flags = source_flags
-    event.destination_flags = destination_flags
-    
-    event.process( self, line )
+
+    event.process( self, @raid, line )
     
     event
   end
