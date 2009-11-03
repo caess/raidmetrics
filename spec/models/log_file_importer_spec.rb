@@ -64,8 +64,9 @@ describe LogFileImporter do
     it "should create an event from the line given" do
       @importer.raid = Raid.new( :time => Time.parse( '7/2 23:07:17' ) )
       
-      event = @importer.process( @log_line )
-      event.should_not be_nil
+      @importer.process( @log_line )
+
+      @importer.events.first.should_not be_nil
     end
   end
 end

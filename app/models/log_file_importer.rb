@@ -3,13 +3,14 @@ require 'ar-extensions/adapters/mysql'
 require 'ar-extensions/import/mysql'
 
 class LogFileImporter
-  attr_reader :raid
+  attr_reader :events, :raid
   
   def initialize
     @factory = EventFactory.new
     @events  = []
     @raid    = nil
-    
+  
+    @count      = 0  
     @chunk_size = 20_000
   end
   
@@ -37,15 +38,12 @@ class LogFileImporter
         
     @factory.raid = @raid
     
-    count = 0
+    @count = 0
     
     file.each_line do |line|      
       process( line.strip )
     
-      count += 1
-      save if count % @chunk_size == 0
-    
-      break if count == max_lines
+      break if @count == max_lines
     end
     
     save if @events.length > 0
@@ -53,10 +51,12 @@ class LogFileImporter
   
   def process( line )
     @events << @factory.build( line )
+    
+    @count += 1
+    save if @count % @chunk_size == 0
   end
   
   def save
-    #@events.each { |event| event.save! }
     Event.import @events.compact, :validate => false
     
     @events.clear

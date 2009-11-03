@@ -32,10 +32,12 @@ class Event < ActiveRecord::Base
   end
   
   def event_type
-    if self.type.nil? or self.type == 'Event'
+    type = self.type
+
+    if type.nil? or type == 'Event'
       'UNKNOWN'
     else
-      self.type.scan( /[A-Z][a-z]+/ ).slice( 0..-2 ).join( '_' ).upcase
+      type.scan( /[A-Z][a-z]+/ ).slice( 0..-2 ).join( '_' ).upcase
     end
   end
   
@@ -45,14 +47,14 @@ class Event < ActiveRecord::Base
   
 private
   def source_string
-    unit_string( self.source, self.source_flags )
+    Event.unit_string( self.source, self.source_flags )
   end
   
   def destination_string
-    unit_string( self.destination, self.destination_flags )
+    Event.unit_string( self.destination, self.destination_flags )
   end
   
-  def unit_string( unit, flags )
+  def Event.unit_string( unit, flags )
     if unit.nil?
       'nil'
     else

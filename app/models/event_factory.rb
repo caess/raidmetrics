@@ -13,10 +13,18 @@ class EventFactory
     @cache.reset
   end
   
-  def new_event( type )
+  def EventFactory.new_event( type )
     class_name = type.split( '_' ).map { |word| word.capitalize }.join + 'Event'
     
     class_name.constantize.new
+  end
+
+  def get_unit( line )
+    guid  = line.shift.hex
+    name  = line.shift
+    flags = line.shift.hex
+
+    [ guid, name, flags ]
   end
   
   def build( raw_line )
@@ -25,15 +33,11 @@ class EventFactory
     time = Time.parse( line.shift + " " + line.shift )
     type = line.shift
     
-    source_guid  = line.shift.hex
-    source_name  = line.shift
-    source_flags = line.shift.hex
+    source_guid, source_name, source_flags = get_unit( line )
     
-    destination_guid  = line.shift.hex
-    destination_name  = line.shift
-    destination_flags = line.shift.hex
+    destination_guid, destination_name, destination_flags = get_unit( line )
     
-    event = new_event( type )
+    event = EventFactory.new_event( type )
     
     event.raid = @raid
     event.offset = time - @raid.time
