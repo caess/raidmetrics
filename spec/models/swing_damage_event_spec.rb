@@ -12,4 +12,8 @@ describe SwingDamageEvent do
   it "should have a DAMAGE suffix" do
     @event.suffix.should == "DAMAGE"
   end
+  
+  it "should have an event type of 'SWING_DAMAGE'" do
+    @event.event_type.should == 'SWING_DAMAGE'
+  end
 end

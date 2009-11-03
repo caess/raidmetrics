@@ -12,4 +12,8 @@ describe RangeMissedEvent do
   it "should have a MISS suffix" do
     @event.suffix.should == "MISS"
   end
+  
+  it "should have an event type of 'RANGE_MISSED'" do
+    @event.event_type.should == 'RANGE_MISSED'
+  end
 end

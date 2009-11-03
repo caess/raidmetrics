@@ -12,4 +12,8 @@ describe SpellCastFailedEvent do
   it "should have a FAIL suffix" do
     @event.suffix.should == "FAIL"
   end
+  
+  it "should have an event type of 'SPELL_CAST_FAILED'" do
+    @event.event_type.should == 'SPELL_CAST_FAILED'
+  end
 end

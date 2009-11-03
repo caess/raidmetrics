@@ -12,4 +12,8 @@ describe SpellPeriodicMissedEvent do
   it "should have a MISS suffix" do
     @event.suffix.should == "MISS"
   end
+  
+  it "should have an event type of 'SPELL_PERIODIC_MISSED'" do
+    @event.event_type.should == 'SPELL_PERIODIC_MISSED'
+  end
 end

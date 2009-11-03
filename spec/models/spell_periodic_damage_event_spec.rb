@@ -12,4 +12,8 @@ describe SpellPeriodicDamageEvent do
   it "should have a DAMAGE suffix" do
     @event.suffix.should == "DAMAGE"
   end
+  
+  it "should have an event type of 'SPELL_PERIODIC_DAMAGE'" do
+    @event.event_type.should == 'SPELL_PERIODIC_DAMAGE'
+  end
 end

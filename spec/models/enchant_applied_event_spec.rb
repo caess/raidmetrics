@@ -12,4 +12,8 @@ describe EnchantAppliedEvent do
   it "should not have a suffix" do
     @event.suffix.should be_nil
   end
+
+  it "should have an event type of 'ENCHANT_APPLIED'" do
+    @event.event_type.should == 'ENCHANT_APPLIED'
+  end
 end

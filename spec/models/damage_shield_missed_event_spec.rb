@@ -12,4 +12,8 @@ describe DamageShieldMissedEvent do
   it "should have a MISS suffix" do
     @event.suffix.should == "MISS"
   end
+  
+  it "should have an event type of 'DAMAGE_SHIELD_MISSED'" do
+    @event.event_type.should == 'DAMAGE_SHIELD_MISSED'
+  end
 end

@@ -12,4 +12,8 @@ describe PartyKillEvent do
   it "should have not have a suffix" do
     @event.suffix.should be_nil
   end
+  
+  it "should have an event type of 'PARTY_KILL'" do
+    @event.event_type.should == 'PARTY_KILL'
+  end
 end

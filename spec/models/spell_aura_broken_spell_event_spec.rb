@@ -12,4 +12,9 @@ describe SpellAuraBrokenSpellEvent do
   it "should have a DISPEL suffix" do
     @event.suffix.should == "DISPEL"
   end
+  
+  
+  it "should have an event type of 'SPELL_AURA_BROKEN_SPELL'" do
+    @event.event_type.should == 'SPELL_AURA_BROKEN_SPELL'
+  end
 end

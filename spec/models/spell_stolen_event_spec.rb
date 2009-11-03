@@ -12,4 +12,8 @@ describe SpellStolenEvent do
   it "should have a DISPEL suffix" do
     @event.suffix.should == "DISPEL"
   end
+  
+  it "should have an event type of 'SPELL_STOLEN'" do
+    @event.event_type.should == 'SPELL_STOLEN'
+  end
 end

@@ -12,4 +12,8 @@ describe SpellAuraRemovedEvent do
   it "should have an AURA suffix" do
     @event.suffix.should == "AURA"
   end
+  
+  it "should have an event type of 'SPELL_AURA_REMOVED'" do
+    @event.event_type.should == 'SPELL_AURA_REMOVED'
+  end
 end

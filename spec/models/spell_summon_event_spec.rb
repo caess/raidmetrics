@@ -12,4 +12,8 @@ describe SpellSummonEvent do
   it "should not have a suffix" do
     @event.suffix.should be_nil
   end
+  
+  it "should have an event type of 'SPELL_SUMMMON'" do
+    @event.event_type.should == 'SPELL_SUMMON'
+  end
 end

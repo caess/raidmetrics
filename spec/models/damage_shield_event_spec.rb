@@ -12,4 +12,8 @@ describe DamageShieldEvent do
   it "should have a DAMAGE suffix" do
     @event.suffix.should == "DAMAGE"
   end
+  
+  it "should have an event type of 'DAMAGE_SHIELD'" do
+    @event.event_type.should == 'DAMAGE_SHIELD'
+  end
 end

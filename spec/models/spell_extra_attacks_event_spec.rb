@@ -12,4 +12,8 @@ describe SpellExtraAttacksEvent do
   it "should have an EXTRA_ATTACKS suffix" do
     @event.suffix.should == "EXTRA_ATTACKS"
   end
+    
+  it "should have an event type of 'SPELL_EXTRA_ATTACKS'" do
+    @event.event_type.should == 'SPELL_EXTRA_ATTACKS'
+  end
 end

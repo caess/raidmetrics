@@ -12,4 +12,8 @@ describe SpellLeechEvent do
   it "should have a DRAIN suffix" do
     @event.suffix.should == "DRAIN"
   end
+  
+  it "should have an event type of 'SPELL_LEECH'" do
+    @event.event_type.should == 'SPELL_LEECH'
+  end
 end

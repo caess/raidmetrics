@@ -7,8 +7,8 @@ describe Event do
     @valid_attributes = {
       :raid => @raid,
       :offset => 0,
-      :source => Unit.new,
-      :destination => Unit.new
+      :source => Unit.new( :name => "Placeholder", :guid => 0 ),
+      :destination => Unit.new( :name => "Placeholder", :guid => 0 )
     }
     
     @event = Event.new( @valid_attributes )
@@ -53,6 +53,68 @@ describe Event do
       @event.should_receive( :process_suffix )
       
       @event.process( nil, nil )
+    end
+  end
+  
+  it "should have an event type of 'UNKNOWN'" do
+    @event.event_type.should == 'UNKNOWN'
+  end
+  
+  context "#to_s" do
+    it "should contain the offset" do
+      @event.to_s.should contain( '%9.3f' % @event.offset )
+    end
+    
+    it "should contain the event type" do
+      @event.to_s.should contain( @event.event_type )
+    end
+    
+    it "should contain the name of the source" do
+      @event.source = Unit.new( :name => "Phaedra", :guid => 0x0200000000322CF9 )
+      
+      @event.to_s.should contain( "Phaedra" )
+    end
+    
+    it "should contain the GUID of the source" do
+      @event.source = Unit.new( :name => "Phaedra", :guid => 0x0200000000322CF9 )
+      
+      @event.to_s.should contain( "0200000000322cf9" )
+    end
+    
+    it "should contain the source flags" do
+      @event.source_flags = 0x514
+      
+      @event.to_s.should contain( "514" )
+    end
+    
+    it "should contain 'nil' if the source is nil" do
+      @event.source = nil
+      
+      @event.to_s.should contain( "nil" )
+    end
+    
+    it "should contain the name of the destination" do
+      @event.destination = Unit.new( :name => "Phaedra", :guid => 0x0200000000322CF9 )
+      
+      @event.to_s.should contain( "Phaedra" )
+    end
+    
+    it "should contain the GUID of the destination" do
+      @event.destination = Unit.new( :name => "Phaedra", :guid => 0x0200000000322CF9 )
+      
+      @event.to_s.should contain( "0200000000322cf9" )
+    end
+
+    it "should contain the destination flags" do
+      @event.destination_flags = 0x514
+      
+      @event.to_s.should contain( "514" )
+    end
+    
+    it "should contain 'nil' if the source is nil" do
+      @event.destination = nil
+      
+      @event.to_s.should contain( "nil" )
     end
   end
 end

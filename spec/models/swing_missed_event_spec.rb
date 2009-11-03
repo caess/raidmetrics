@@ -12,4 +12,8 @@ describe SwingMissedEvent do
   it "should have a MISS suffix" do
     @event.suffix.should == "MISS"
   end
+  
+  it "should have an event type of 'SWING_MISSED'" do
+    @event.event_type.should == 'SWING_MISSED'
+  end
 end

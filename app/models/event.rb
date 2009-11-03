@@ -30,4 +30,33 @@ class Event < ActiveRecord::Base
   def suffix
     nil
   end
+  
+  def event_type
+    if self.type.nil? or self.type == 'Event'
+      'UNKNOWN'
+    else
+      self.type.scan( /[A-Z][a-z]+/ ).slice( 0..-2 ).join( '_' ).upcase
+    end
+  end
+  
+  def to_s
+    "|%9.3f %s From: %s To: %s" % [ self.offset, self.event_type, source_string, destination_string ]
+  end
+  
+private
+  def source_string
+    unit_string( self.source, self.source_flags )
+  end
+  
+  def destination_string
+    unit_string( self.destination, self.destination_flags )
+  end
+  
+  def unit_string( unit, flags )
+    if unit.nil?
+      'nil'
+    else
+      '%s (%016x,%x)' % [ unit.name, unit.guid, flags || 0 ]
+    end    
+  end
 end

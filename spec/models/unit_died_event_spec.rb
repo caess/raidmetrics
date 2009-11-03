@@ -12,4 +12,8 @@ describe UnitDiedEvent do
   it "should have not have a suffix" do
     @event.suffix.should be_nil
   end
+  
+  it "should have an event type of 'UNIT_DIED'" do
+    @event.event_type.should == 'UNIT_DIED'
+  end
 end

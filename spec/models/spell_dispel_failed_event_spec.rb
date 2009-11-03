@@ -12,4 +12,8 @@ describe SpellDispelFailedEvent do
   it "should have an INTERRUPT suffix" do
     @event.suffix.should == "INTERRUPT"
   end
+  
+  it "should have an event type of 'SPELL_DISPEL_FAILED'" do
+    @event.event_type.should == 'SPELL_DISPEL_FAILED'
+  end
 end

@@ -12,4 +12,8 @@ describe SpellBuildingDamageEvent do
   it "should have an AURA suffix" do
     @event.suffix.should == "DAMAGE"
   end
+  
+  it "should have an event type of 'SPELL_BUILDING_DAMAGE'" do
+    @event.event_type.should == 'SPELL_BUILDING_DAMAGE'
+  end
 end

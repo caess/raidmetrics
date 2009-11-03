@@ -12,4 +12,9 @@ describe DamageSplitEvent do
   it "should have a DAMAGE suffix" do
     @event.suffix.should == "DAMAGE"
   end
+  
+  
+  it "should have an event type of 'DAMAGE_SPLIT'" do
+    @event.event_type.should == 'DAMAGE_SPLIT'
+  end
 end

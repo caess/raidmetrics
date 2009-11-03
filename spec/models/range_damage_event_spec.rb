@@ -12,4 +12,8 @@ describe RangeDamageEvent do
   it "should have a DAMAGE suffix" do
     @event.suffix.should == "DAMAGE"
   end
+  
+  it "should have an event type of 'RANGE_DAMAGE'" do
+    @event.event_type.should == 'RANGE_DAMAGE'
+  end
 end

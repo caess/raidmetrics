@@ -12,4 +12,8 @@ describe SpellInterruptEvent do
   it "should have an INTERRUPT suffix" do
     @event.suffix.should == "INTERRUPT"
   end
+  
+  it "should have an event type of 'SPELL_INTERRUPT'" do
+    @event.event_type.should == 'SPELL_INTERRUPT'
+  end
 end

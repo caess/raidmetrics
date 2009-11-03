@@ -12,4 +12,8 @@ describe EnchantRemovedEvent do
   it "should have not have a suffix" do
     @event.suffix.should be_nil
   end
+  
+  it "should have an event type of 'ENCHANT_REMOVED'" do
+    @event.event_type.should == 'ENCHANT_REMOVED'
+  end
 end

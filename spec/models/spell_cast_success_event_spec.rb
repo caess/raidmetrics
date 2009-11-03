@@ -12,4 +12,8 @@ describe SpellCastSuccessEvent do
   it "should not have a suffix" do
     @event.suffix.should be_nil
   end
+  
+  it "should have an event type of 'SPELL_CAST_SUCCESS'" do
+    @event.event_type.should == 'SPELL_CAST_SUCCESS'
+  end
 end
